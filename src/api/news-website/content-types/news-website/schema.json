@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_websites",
+  "info": {
+    "singularName": "news-website",
+    "pluralName": "news-websites",
+    "displayName": "News Website"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "websiteName": {
+      "type": "string"
+    },
+    "primaryColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "secondaryColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "websiteDomain": {
+      "type": "string"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "inversedBy": "news_websites"
+    }
+  }
+}
